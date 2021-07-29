@@ -1,27 +1,35 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bola : MonoBehaviour {
-	public EscogerColor escogerColor;
+public class Bolas : MonoBehaviour{
 
-	void OnMouseOver()
-	{
-		escogerColor.MostrarBolasColores (gameObject);
-	}
-	public Material ColorBola()
-	{
+    public EscojerColor escojerColor;
+    public Material colorDefaul;
+    Mesh meshFilter;
 
-		return GetComponent<MeshRenderer> ().material;
-		
-    }
+    public bool EsTiraObjetivo;
 
-	public void CambiarColor(Material ColorNuevo)
-	{
-		//Solucionada?
-		//Activa?
+    void awake(){
+        meshInicial = GetComponent<meshFilter> ().mesh;
+        GetComponent<meshFilter> ().mesh = new Mesh();
+         GetComponent<meshRenderer> ().material = colorDefaul;  
 
-		GetComponent<MeshRenderer> ().material = ColorNuevo;
-	}
+            }
+
+            void OnMouseOver(){
+                escojerColor.MostrarBolasColores(gameObject);
+            }
+
+            public Material ColorBola(){
+                return GetComponent<meshFilter> ().material; 
+            }
+
+            public void CambiarColor (Material ColorNuevo){
+
+                GetComponent<meshFilter> ().mesh = mesh=meshInicial();
+                GetComponent<meshRenderer> ().material = ColorNuevo;
+                GetComponentInParent<Bolas>().GetComponentInParent<Tira>().ActualizarCombinacionActual;
+            }
 
 }
