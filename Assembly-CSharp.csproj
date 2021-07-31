@@ -50,6 +50,7 @@
      <Compile Include="Assets\BolaEscogerColor.cs" />
      <Compile Include="Assets\Bolas.cs" />
      <Compile Include="Assets\EscogerColor.cs" />
+     <Compile Include="Assets\Tira.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.15f1/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
